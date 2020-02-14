@@ -1,0 +1,84 @@
+<br>
+<div class="container">
+  <mat-card class="card-align">
+    <mat-card-content class="card-content-align">
+    <form class="example-form" [formGroup]="signupForm" (ngSubmit)="postData()">
+      <mat-form-field class="example-full-width">
+        <input matInput formControlName="fname" placeholder="First Name" required>
+      </mat-form-field>     
+      <mat-error>
+        <span *ngIf="!signupForm.get('fname').valid && signupForm.get('fname').touched" class="text-danger">* First Name Required !</span>
+      </mat-error>
+      
+      <mat-form-field class="example-full-width">
+        <input matInput formControlName="lname" placeholder="Last Name" required>
+      </mat-form-field>     
+      <mat-error>
+        <span *ngIf="!signupForm.get('lname').valid && signupForm.get('lname').touched" class="text-danger">* Last Name Required !</span>
+      </mat-error>
+
+        <mat-form-field appearance="" class="example-full-width">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="email" required>
+          <mat-error>
+            <span *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" class="text-danger">* Email Required !</span>
+          </mat-error>
+        </mat-form-field>
+
+        <!-- <mat-form-field class="example-full-width">
+          <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-radio-button value="male">Male</mat-radio-button>
+            <mat-radio-button value="female">Female</mat-radio-button>
+          </mat-radio-group>
+        </mat-form-field> -->
+<br>
+        <mat-radio-group aria-label="Select an option" formControlName="gender" class="example-full-width" aria-required="gender">
+          <mat-radio-button value="male">Male</mat-radio-button>&nbsp;&nbsp;&nbsp;
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+        <mat-error>
+          <span *ngIf="!signupForm.get('gender').valid" class="text-danger">* Gender Required !</span>
+        </mat-error>
+<br>
+        <mat-form-field class="example-full-width">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" required>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker touchUi #picker></mat-datepicker>
+        </mat-form-field>
+<br>
+        <!-- select courses -->
+        <mat-checkbox class="example-full-width" formControlName="checkbox1" value="books" aria-required="checkbox1">Books</mat-checkbox>  
+        <mat-error>
+          <span *ngIf="!signupForm.get('checkbox1').valid" class="text-danger">* Select Atleast One Value</span>
+        </mat-error>
+         
+        <mat-form-field>
+          <mat-select formControlName="collectAccessories" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let accessory of accessories" [value]="accessory">{{accessory.name}}</mat-option>
+          </mat-select>
+          <mat-error>
+            <span *ngIf="!signupForm.get('collectAccessories').valid" class="text-danger">* select atleast one value</span>
+          </mat-error>
+        </mat-form-field>
+<br>
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="Address" formControlName="address"></textarea>
+        </mat-form-field>
+<br>        
+        <mat-slide-toggle class="example-full-width" formControlName="accept_terms" required="accept_terms">Accept Terms & Conditions</mat-slide-toggle>
+        <mat-error>
+          <span *ngIf="!signupForm.get('accept_terms').valid" class="text-danger"></span>
+        </mat-error>
+<br>
+        <div class="form-group ">
+          <button mat-button class="btn btn-danger form-control" [disabled]="!signupForm.valid">Submit</button>
+          &nbsp;&nbsp;
+          <button mat-button class="btn btn-danger form-control" (click)="resetForm()" [disabled]="!signupForm.valid">Reset</button>
+        </div>
+        
+      </form> 
+      </mat-card-content>
+    </mat-card>
+</div>
