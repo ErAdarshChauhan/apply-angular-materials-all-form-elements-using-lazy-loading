@@ -14,10 +14,12 @@ import { MatCheckboxModule } from "@angular/material/checkbox";
 import {MatSlideToggleModule} from '@angular/material/slide-toggle'
 import { MatCardModule } from "@angular/material/card"; 
 import {MatSelectModule} from '@angular/material/select';
+import { SprecialLayoutsComponent } from './sprecial-layouts/sprecial-layouts.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 @NgModule({
-  declarations: [FormControlsComponent, FormsComponent],
+  declarations: [FormControlsComponent, FormsComponent, SprecialLayoutsComponent],
   imports: [
     CommonModule,  
     FormsMaterialsRoutingModule,
@@ -32,7 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatStepperModule
   ],
   exports:[
     ReactiveFormsModule,
@@ -47,7 +50,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatFormFieldModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatStepperModule
   ],
   providers:[]
 })

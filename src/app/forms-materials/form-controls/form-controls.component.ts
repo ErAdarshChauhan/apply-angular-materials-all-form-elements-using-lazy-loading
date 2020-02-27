@@ -3,8 +3,7 @@ import { FormControl,FormGroup,FormBuilder, Validators } from "@angular/forms";
 
 //create interface
 interface Accessory {
-  name: string;
-  
+  name: string; 
 }
 
 

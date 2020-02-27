@@ -1,0 +1,43 @@
+<br>
+<div class="container">
+  <mat-card class="card-align bg-dark">
+    <mat-card-content class="card-content-align">
+            <mat-horizontal-stepper linear #stepper class="bg-dark text-white">
+                <mat-step [stepControl]="firstFormGroup" errorMessage="Name is required.">
+                  <form [formGroup]="myFormGroup">
+                    <ng-template matStepLabel class="text-white">Fill out your name</ng-template>
+                    <mat-form-field>
+                      <mat-label>Name</mat-label>
+                      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperNext class="btn btn-danger form-control">Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup" errorMessage="Address is required.">
+                  <form [formGroup]="myFormGroup">
+                    <ng-template matStepLabel>Fill out your address</ng-template>
+                    <mat-form-field>
+                      <mat-label>Address</mat-label>
+                      <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="secondCtrl"
+                             required>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperPrevious class="btn btn-danger form-control">Back</button> &nbsp;&nbsp;&nbsp;
+                      <button mat-button matStepperNext class="btn btn-danger form-control">Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step>
+                  <ng-template matStepLabel>Done</ng-template>
+                  <p>You are now done.</p>
+                  <div>
+                    <button mat-button  class="btn btn-danger form-control" (click)="submitData(myFormGroup)">Submit</button>&nbsp;&nbsp;&nbsp;
+                    <button mat-button (click)="stepper.reset()" class="btn btn-danger form-control">Reset</button>
+                  </div>
+                </mat-step>
+              </mat-horizontal-stepper>
+    </mat-card-content>
+  </mat-card>
+</div>
